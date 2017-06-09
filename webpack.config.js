@@ -1,5 +1,10 @@
 var path = require('path')
 var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var SshWebpackPlugin = require('ssh-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+
+
 
 module.exports = {
   entry: './src/main.js',
@@ -55,10 +60,12 @@ module.exports = {
     hints: false
   },
   devtool: '#eval-source-map'
+
 }
 
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
+
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
@@ -74,6 +81,18 @@ if (process.env.NODE_ENV === 'production') {
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
-    })
+    }),
+    new CopyWebpackPlugin([{ from: 'public', to: 'public' }]),
+    new CopyWebpackPlugin([{ from: 'index.html', to: 'index.html' }]),
+    
+    new SshWebpackPlugin({
+        host: 'magimat.ca',
+        port: '22',
+        username: 'mat.girard',
+        privateKey: require('fs').readFileSync('/Volumes/HDD/mat/.ssh/id_rsa'),
+        from: './dist',
+        to: '/var/www/html',
+    })    
+   
   ])
 }
