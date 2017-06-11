@@ -30,26 +30,8 @@
       >
         <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
       </v-btn>
-      <v-btn
-        icon
-        @click.native.stop="clipped = !clipped"
-      >
-        <v-icon>web</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.native.stop="fixed = !fixed"
-      >
-        <v-icon>remove</v-icon>
-      </v-btn>
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn
-        icon
-        @click.native.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>menu</v-icon>
-      </v-btn>
     </v-toolbar>
     <main>
       <v-container fluid>
@@ -57,7 +39,7 @@
           <v-layout column align-center>
             <img src="/public/v.png" alt="Vuetify.js" class="mb-5" />
             <blockquote>
-              &#8220;First, solve the problem. Then, write the code.&#8221;
+              &#8220;First222, solve the problem. Then12345678, write the code.&#8221;
               <footer>
                 <small>
                   <em>&mdash;John Johnson</em>
@@ -95,7 +77,7 @@
     data () {
       return {
         clipped: false,
-        drawer: true,
+        drawer: false,
         fixed: false,
         items: [
           { icon: 'bubble_chart', title: 'Inspire' }
@@ -103,7 +85,7 @@
         miniVariant: false,
         right: true,
         rightDrawer: false,
-        title: 'Vuetify.js'
+        title: 'Vuetify.1111js'
       }
     }
   }
