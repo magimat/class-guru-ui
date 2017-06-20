@@ -1,5 +1,8 @@
 <template>
   <v-app>
+
+
+
     <v-navigation-drawer
       persistent
       :mini-variant="miniVariant"
@@ -22,6 +25,9 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
+
+
+
     <v-toolbar>
       <v-toolbar-side-icon @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-btn 
@@ -33,23 +39,87 @@
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
     </v-toolbar>
+
+
+
+
     <main>
-      <v-container fluid>
-        <v-slide-y-transition mode="out-in">
-          <v-layout column align-center>
-            <img src="/public/v.png" alt="Vuetify.js" class="mb-5" />
-            <blockquote>
-              &#8220;First222, solve the problem. Then12345678, write the code.&#8221;
-              <footer>
-                <small>
-                  <em>&mdash;John Johnson</em>
-                </small>
-              </footer>
-            </blockquote>
+
+
+    <div class='ma-3'>
+
+<!-- rangée de 8 -->
+          <v-layout class='mt-3' row>
+            <v-flex xs6>
+              <v-layout row>
+                <v-flex xs3 v-for="i in 4">
+                  <StudentCard></StudentCard>
+                </v-flex>
+              </v-layout>
+            </v-flex>
+            <v-flex xs6>
+              <v-layout row>
+                <v-flex xs3 v-for="i in 4">
+                  <StudentCard></StudentCard>
+                </v-flex>
+              </v-layout>
+            </v-flex>
           </v-layout>
-        </v-slide-y-transition>
-      </v-container>
+
+
+<!-- rangée de 7 -->
+          <v-layout class='mt-3' row>
+            <v-flex offset-xs1 xs6>
+              <v-layout row>
+                <v-flex xs3 v-for="i in 4">
+                  <StudentCard></StudentCard>
+                </v-flex>
+              </v-layout>
+            </v-flex>
+            <v-flex xs6>
+              <v-layout row>
+                <v-flex xs3 v-for="i in 3">
+                  <StudentCard></StudentCard>
+                </v-flex>
+              </v-layout>
+            </v-flex>
+          </v-layout>
+
+
+
+<!-- rangée de 6 -->
+          <v-layout class='mt-3' row>
+            <v-flex xs2 v-for="i in 6">
+              <StudentCard></StudentCard>
+            </v-flex>
+          </v-layout>
+
+
+
+<!-- rangée de 5 -->
+          <v-layout class='mt-3' row>
+            <v-flex offset-xs2 xs10>
+              <v-layout>
+                <v-flex xs2 v-for="i in 5">
+                  <StudentCard></StudentCard>
+                </v-flex>
+              </v-layout>
+            </v-flex>
+          </v-layout>
+
+
+
+
+
+
+    </div>
+
+
     </main>
+    
+
+
+
     <v-navigation-drawer
       temporary
       :right="right"
@@ -66,6 +136,10 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
+
+
+
+
     <v-footer :fixed="fixed">
       <span>&copy; 2017</span>
     </v-footer>
@@ -73,6 +147,8 @@
 </template>
 
 <script>
+  import StudentCard from './StudentCard.vue'
+
   export default {
     data () {
       return {
@@ -85,10 +161,20 @@
         miniVariant: false,
         right: true,
         rightDrawer: false,
-        title: 'Vuetify.1111js'
+        title: 'Class-Guru'
       }
+    },
+    methods: {
+        sayHello() {
+            alert('hello')
+        }
+    },
+    components: {
+      StudentCard
     }
+
   }
+
 </script>
 
 <style lang="stylus">

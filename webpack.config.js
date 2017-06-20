@@ -100,9 +100,9 @@ if (process.env.NODE_ENV === 'production') {
         port: '22',
         username: 'mat.girard',
         privateKey: require('fs').readFileSync('/Volumes/HDD/mat/.ssh/id_rsa'),
-        before:'rm -rf /var/www/html/*',
+        before:'rm -rf /var/www/html/class-guru/*',
         from: './dist',
-        to: '/var/www/html'
+        to: '/var/www/html/class-guru'
     })    
    
   ])
