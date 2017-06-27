@@ -45,74 +45,29 @@
 
     <main>
 
+      <div> 
+        <grid-layout
+                    :layout="layout"
+                    :col-num="8"
+                    :row-height="100"
+                    :is-draggable="true"
+                    :is-resizable="false"
+                    :vertical-compact="false"
+                    :margin="[30, 30]"
+                    :use-css-transforms="true"
+          >
 
-    <div class='ma-3'>
+            <grid-item v-for="item in layout" :key="item.i"
+                       :x="item.x"
+                       :y="item.y"
+                       :w=1
+                       :h=1
+                       :i="item.i">
+                <StudentCard></StudentCard>
+            </grid-item>
+        </grid-layout>
+      </div>
 
-<!-- rangée de 8 -->
-          <v-layout class='mt-3' row>
-            <v-flex xs6>
-              <v-layout row>
-                <v-flex xs3 v-for="i in 4">
-                  <StudentCard></StudentCard>
-                </v-flex>
-              </v-layout>
-            </v-flex>
-            <v-flex xs6>
-              <v-layout row>
-                <v-flex xs3 v-for="i in 4">
-                  <StudentCard></StudentCard>
-                </v-flex>
-              </v-layout>
-            </v-flex>
-          </v-layout>
-
-
-<!-- rangée de 7 -->
-          <v-layout class='mt-3' row>
-            <v-flex offset-xs1 xs6>
-              <v-layout row>
-                <v-flex xs3 v-for="i in 4">
-                  <StudentCard></StudentCard>
-                </v-flex>
-              </v-layout>
-            </v-flex>
-            <v-flex xs6>
-              <v-layout row>
-                <v-flex xs3 v-for="i in 3">
-                  <StudentCard></StudentCard>
-                </v-flex>
-              </v-layout>
-            </v-flex>
-          </v-layout>
-
-
-
-<!-- rangée de 6 -->
-          <v-layout class='mt-3' row>
-            <v-flex xs2 v-for="i in 6">
-              <StudentCard></StudentCard>
-            </v-flex>
-          </v-layout>
-
-
-
-<!-- rangée de 5 -->
-          <v-layout class='mt-3' row>
-            <v-flex offset-xs2 xs10>
-              <v-layout>
-                <v-flex xs2 v-for="i in 5">
-                  <StudentCard></StudentCard>
-                </v-flex>
-              </v-layout>
-            </v-flex>
-          </v-layout>
-
-
-
-
-
-
-    </div>
 
 
     </main>
@@ -148,6 +103,24 @@
 
 <script>
   import StudentCard from './StudentCard.vue'
+  import StudentEditor from './StudentEditor.vue'
+  import VueGridLayout from 'vue-grid-layout';
+
+var testLayout = [
+      {"x":0,"y":0,"w":1,"h":1,"i":"0"},
+      {"x":1,"y":0,"w":1,"h":1,"i":"1"},
+      {"x":2,"y":0,"w":1,"h":1,"i":"2"},
+      {"x":3,"y":0,"w":1,"h":1,"i":"3"},
+      {"x":4,"y":0,"w":1,"h":1,"i":"4"},
+      {"x":5,"y":0,"w":1,"h":1,"i":"5"},
+      {"x":6,"y":0,"w":1,"h":1,"i":"6"},
+      {"x":7,"y":0,"w":1,"h":1,"i":"7"}
+
+  ];
+  
+   
+var GridLayout = VueGridLayout.GridLayout;
+  var GridItem = VueGridLayout.GridItem;
 
   export default {
     data () {
@@ -161,7 +134,8 @@
         miniVariant: false,
         right: true,
         rightDrawer: false,
-        title: 'Class-Guru'
+        title: 'Class-Guru',
+        layout: testLayout
       }
     },
     methods: {
@@ -170,7 +144,11 @@
         }
     },
     components: {
-      StudentCard
+      StudentEditor,
+      StudentCard,
+      GridLayout,
+      GridItem
+
     }
 
   }
