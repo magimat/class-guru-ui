@@ -36,39 +36,27 @@
       >
         <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
       </v-btn>
-      <v-toolbar-title v-text="title"></v-toolbar-title>
+      <v-toolbar-title class="white--text" v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
+      
+
+      <v-select
+        class="white"
+        hide-details
+        v-bind:items="groups"
+        v-model="selectedGroup"
+        label="Choisir un groupe"
+      ></v-select>
+
+
     </v-toolbar>
-
-
 
 
     <main>
 
-      <div> 
-        <grid-layout
-                    :layout="layout"
-                    :col-num="8"
-                    :row-height="100"
-                    :is-draggable="true"
-                    :is-resizable="false"
-                    :vertical-compact="false"
-                    :margin="[30, 30]"
-                    :use-css-transforms="true"
-          >
-
-            <grid-item v-for="item in layout" :key="item.i"
-                       :x="item.x"
-                       :y="item.y"
-                       :w=1
-                       :h=1
-                       :i="item.i">
-                <StudentCard></StudentCard>
-            </grid-item>
-        </grid-layout>
-      </div>
-
-
+     
+      <router-view class="view"></router-view>
+    
 
     </main>
     
@@ -102,25 +90,6 @@
 </template>
 
 <script>
-  import StudentCard from './StudentCard.vue'
-  import StudentEditor from './StudentEditor.vue'
-  import VueGridLayout from 'vue-grid-layout';
-
-var testLayout = [
-      {"x":0,"y":0,"w":1,"h":1,"i":"0"},
-      {"x":1,"y":0,"w":1,"h":1,"i":"1"},
-      {"x":2,"y":0,"w":1,"h":1,"i":"2"},
-      {"x":3,"y":0,"w":1,"h":1,"i":"3"},
-      {"x":4,"y":0,"w":1,"h":1,"i":"4"},
-      {"x":5,"y":0,"w":1,"h":1,"i":"5"},
-      {"x":6,"y":0,"w":1,"h":1,"i":"6"},
-      {"x":7,"y":0,"w":1,"h":1,"i":"7"}
-
-  ];
-  
-   
-var GridLayout = VueGridLayout.GridLayout;
-  var GridItem = VueGridLayout.GridItem;
 
   export default {
     data () {
@@ -131,23 +100,17 @@ var GridLayout = VueGridLayout.GridLayout;
         items: [
           { icon: 'bubble_chart', title: 'Inspire' }
         ],
+        groups: ['Groupe 1', 'Groupe 2', 'Groupe 3'],
+        selectedGroup: null,
         miniVariant: false,
         right: true,
         rightDrawer: false,
         title: 'Class-Guru',
-        layout: testLayout
       }
     },
     methods: {
-        sayHello() {
-            alert('hello')
-        }
     },
     components: {
-      StudentEditor,
-      StudentCard,
-      GridLayout,
-      GridItem
 
     }
 
