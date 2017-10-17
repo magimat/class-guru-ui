@@ -1,28 +1,26 @@
 <template>
 
-      <div> 
-        <grid-layout
-                    :layout="layout"
-                    :col-num="8"
-                    :row-height="100"
-                    :is-draggable="true"
-                    :is-resizable="false"
-                    :vertical-compact="false"
-                    :margin="[30, 30]"
-                    :use-css-transforms="true"
-          >
+<grid-layout
+            :layout="layout"
+            :col-num="8"
+            :row-height="30"
+            :is-draggable="true"
+            :is-resizable="false"
+            :vertical-compact="true"
+            :margin="[10, 10]"
+            :use-css-transforms="true"
+    >
 
-            <grid-item v-for="item in layout" :key="item.i"
-                       :x="item.x"
-                       :y="item.y"
-                       :w=1
-                       :h=1
-                       :i="item.i">
-                <StudentCard></StudentCard>
-            </grid-item>
-        </grid-layout>
-      </div>
-    
+        <grid-item v-for="item in layout"
+                   :x="item.x"
+                   :y="item.y"
+                   :w="item.w"
+                   :h="item.h"
+                   :i="item.i">
+            
+                   <StudentCard></StudentCard>
+        </grid-item>
+    </grid-layout>
 
 </template>
 
@@ -30,7 +28,7 @@
   import StudentCard from './StudentCard.vue'
   import VueGridLayout from 'vue-grid-layout';
 
-var testLayout = [
+  var testLayout = [
       {"x":0,"y":0,"w":1,"h":1,"i":"0"},
       {"x":1,"y":0,"w":1,"h":1,"i":"1"},
       {"x":2,"y":0,"w":1,"h":1,"i":"2"},
@@ -41,9 +39,9 @@ var testLayout = [
       {"x":7,"y":0,"w":1,"h":1,"i":"7"}
 
   ];
-  
-   
-var GridLayout = VueGridLayout.GridLayout;
+
+
+  var GridLayout = VueGridLayout.GridLayout;
   var GridItem = VueGridLayout.GridItem;
 
   export default {
@@ -52,15 +50,11 @@ var GridLayout = VueGridLayout.GridLayout;
         layout: testLayout
       }
     },
-    methods: {
-    },
     components: {
       StudentCard,
-      GridLayout,
-      GridItem
-
+      "GridLayout": GridLayout,
+      "GridItem": GridItem
     }
-
   }
 
 </script>

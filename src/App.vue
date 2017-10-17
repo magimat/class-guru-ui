@@ -10,7 +10,7 @@
       v-model="drawer"
     >
       <v-list>
-        <v-list-item
+        <v-list-tile
           v-for="(item, i) in items"
           :key="i"
         >
@@ -22,7 +22,7 @@
               <v-list-tile-title v-text="item.title"></v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
-        </v-list-item>
+        </v-list-tile>
       </v-list>
     </v-navigation-drawer>
 
@@ -53,15 +53,13 @@
 
 
     <main>
+      <v-content>
 
-     
-      <router-view class="view"></router-view>
-    
+              <router-view></router-view>
 
+      </v-content>
     </main>
     
-
-
 
     <v-navigation-drawer
       temporary
@@ -69,14 +67,14 @@
       v-model="rightDrawer"
     >
       <v-list>
-        <v-list-item>
+        <v-list-tile>
           <v-list-tile @click.native="right = !right">
             <v-list-tile-action>
               <v-icon light>compare_arrows</v-icon>
             </v-list-tile-action>
             <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
           </v-list-tile>
-        </v-list-item>
+        </v-list-tile>
       </v-list>
     </v-navigation-drawer>
 

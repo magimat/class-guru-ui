@@ -5,10 +5,7 @@
         <v-icon class="small-icon pr-2">settings</v-icon>
       </v-btn>
       <v-card>
-        <v-card-row>
           <v-card-title>User Profile</v-card-title>
-        </v-card-row>
-        <v-card-row>
           <v-card-text>
             <v-text-field label="Email" required></v-text-field>
             <v-text-field label="Password" type="password" required></v-text-field>
@@ -25,11 +22,10 @@
             ></v-select>
             <small>*indicates required field</small>
           </v-card-text>
-        </v-card-row>
-        <v-card-row actions>
+        <v-card-actions>
           <v-btn class="blue--text darken-1" flat @click.native="modalModel = false">Close</v-btn>
           <v-btn class="blue--text darken-1" flat @click.native="modalModel = false">Save</v-btn>
-        </v-card-row>
+        </v-card-actions>
       </v-card>
     </v-dialog>
   </v-layout>

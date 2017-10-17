@@ -1,24 +1,22 @@
 <template>
-  <v-card>
 
-    <v-card-row class="blue body-1 title-row">
-    <v-card-title class="title-card pa-2">
-        <span>Alexandre Tremblay-Savard</span>
-        <v-spacer></v-spacer>
-        <div>
-          <StudentEditor></StudentEditor>
-        </div>
-    </v-card-title>
-    </v-card-row>
-    <v-card-text class="pa-1 text-student">
-        <div>
-          <img class='studentimg' src='public/monsters/monster0.png' height='48' width='48'></img>
-          <p>Blablabla</p></div>
-    </v-card-text>
+        <v-card>
+
+          <v-card-title class="primary title-card pa-2">
+              <span>Alexandre Tremblay-Savard</span>
+              <v-spacer></v-spacer>
+              <div>
+                <StudentEditor></StudentEditor>
+              </div>
+          </v-card-title>
+          <v-card-text class="pa-1 text-student">
+              <div>
+                <img class='studentimg' src='public/monsters/monster0.png' height='48' width='48'></img>
+                <p>Blablabla</p></div>
+          </v-card-text>
 
 
-  </v-card>
-
+        </v-card>
 </template>
  
 <script>
